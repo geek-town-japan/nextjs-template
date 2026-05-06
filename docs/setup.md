@@ -154,3 +154,12 @@ exec zsh
 ```bash
 direnv allow
 ```
+
+#### 2-5. 正しく開発環境が整っていることを確認
+
+開発環境が整えば以下のコマンドが正しく動作するはずです。
+
+```bash
+pnpm --version
+node --version
+```
