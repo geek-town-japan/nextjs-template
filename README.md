@@ -107,14 +107,14 @@
 
 ## 技術スタック
 
-外部ライブラリをまだ追加していない層は`-`とし、Next.js標準で担えるものは機能名を記載しています。
+外部ライブラリをまだ追加していない層は`-`とし、Next.js標準で担えるものは機能名を記載しています。バージョンは`package.json`/`pnpm-lock.yaml`に合わせています。
 
 | 分類 | 技術 | バージョン / 備考 |
 |------|------|-------------------|
-| 言語 | TypeScript | 5.9.3 |
-| UIライブラリ | React | 19.2.4 |
-| UIライブラリ | React DOM | 19.2.4 |
-| フレームワーク | Next.js | 16.2.4 |
+| 言語 | TypeScript | 6.0.3 |
+| UIライブラリ | React | 19.2.6 |
+| UIライブラリ | React DOM | 19.2.6 |
+| フレームワーク | Next.js | 16.2.6 |
 | ルーティング | App Router | Next.js標準 |
 | レンダリング | Server Components/Client Components | Next.js標準 |
 | データ取得 | `fetch` in Server Components | Next.js標準 |
@@ -122,9 +122,15 @@
 | メタデータ管理 | Metadata API | Next.js標準 |
 | 画像最適化 | `next/image` | Next.js標準 |
 | フォント最適化 | `next/font` | Next.js標準 |
-| スタイリング | Tailwind CSS | 4.2.4 |
-| CSS処理 | PostCSS(`@tailwindcss/postcss`) | 4.2.4 |
-| Lint | ESLint+`eslint-config-next` | 9.39.4/16.2.4 |
+| スタイリング | Tailwind CSS | 4.3.0 |
+| CSS処理 | PostCSS(`@tailwindcss/postcss`) | 4.3.0 |
+| UIコンポーネント | shadcn | 4.7.0 / `radix-nova` |
+| Headless UI | Radix UI(`radix-ui`) | 1.4.3 |
+| テーマ管理 | `next-themes` | 0.4.6 |
+| アイコン | `lucide-react` | 1.16.0 |
+| CSSアニメーション | `tw-animate-css` | 1.4.0 |
+| classNameユーティリティ | `class-variance-authority`/`clsx`/`tailwind-merge` | 0.7.1/2.1.1/3.6.0 |
+| Lint | ESLint+`eslint-config-next` | 9.39.4/16.2.6 |
 | フォーム管理 | Server Actions/HTML Form | Next.js/React標準 |
 | フォーム管理ライブラリ | - | 未導入 |
 | バリデーション | HTML標準バリデーションのみ | Zod等は未導入 |
