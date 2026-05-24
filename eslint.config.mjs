@@ -11,7 +11,12 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    "coverage/**",
+    "playwright-report/**",
+    "storybook-static/**",
+    "test-results/**",
     "next-env.d.ts",
+    "lib/generated/prisma/**",
   ]),
 ]);
 
