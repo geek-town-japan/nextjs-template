@@ -163,3 +163,29 @@ direnv allow
 pnpm --version
 node --version
 ```
+
+## 3. アプリケーションの初期化
+
+依存パッケージをインストールします。
+
+```bash
+pnpm i
+```
+
+ローカルPostgreSQLを初期化し、migrationとseedを適用します。
+
+```bash
+pnpm db:init
+pnpm db:start
+pnpm db:create
+pnpm db:migrate
+pnpm db:seed
+```
+
+開発サーバーを起動します。
+
+```bash
+pnpm dev
+```
+
+ブラウザで`http://localhost:3000`を開きます。起動と停止の詳細は[起動・停止手順](runbook.md)を参照してください。

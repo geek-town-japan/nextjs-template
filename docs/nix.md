@@ -43,6 +43,31 @@ flake.nix
 flake.lock
 ```
 
+## このプロジェクトでNixが提供するもの
+
+`flake.nix`では、開発に必要なCLIと実行時依存をまとめています。
+
+```text
+Node.js
+pnpm
+OpenSSL
+PostgreSQL
+Prisma engines
+Playwright driver
+```
+
+PrismaとPlaywrightはNixOS上で汎用Linux向けバイナリがそのまま動かないことがあるため、`shellHook`で次の環境変数を設定しています。
+
+```bash
+PRISMA_SCHEMA_ENGINE_BINARY
+PLAYWRIGHT_BROWSERS_PATH
+PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD
+PRISMA_HIDE_UPDATE_MESSAGE
+CHECKPOINT_DISABLE
+```
+
+これにより、`pnpm db:migrate`や`pnpm test:e2e`をNix環境内で安定して実行できます。
+
 ### flake.nix
 
 `flake.nix` は、開発環境の定義ファイルです。  

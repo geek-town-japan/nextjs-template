@@ -13,3 +13,28 @@
 ## アップデート手順
 
 pnpmでアップデートを行います
+
+## 開発サーバー
+
+起動:
+
+```bash
+pnpm dev
+```
+
+URL:
+
+```text
+http://localhost:3000
+```
+
+停止は起動中のターミナルで`Ctrl+C`です。
+
+## 本番ビルド
+
+```bash
+pnpm build
+pnpm start
+```
+
+`pnpm build`では先頭で`prisma generate`を実行し、Prisma Clientを生成してからNext.jsをビルドします。

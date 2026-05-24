@@ -209,3 +209,20 @@ pnpm update next --latest
 > [!WARNING]
 > Nixでpnpmを管理している場合、`pnpm self-update`や`npm install -g pnpm`は使わないでください。
 > プロジェクトで定義したpnpmのバージョンと、ローカルに入れたpnpmのバージョンがずれる原因になります。
+
+## このプロジェクトの主要スクリプト
+
+| コマンド | 説明 |
+|---|---|
+| `pnpm dev` | Prisma Client生成後にNext.js開発サーバーを起動 |
+| `pnpm build` | Prisma Client生成後にNext.js本番ビルド |
+| `pnpm start` | 本番ビルド済みアプリを起動 |
+| `pnpm lint` | ESLintを実行 |
+| `pnpm test` | Vitestの単体・コンポーネント・結合テストを実行 |
+| `pnpm test:e2e` | Playwright E2Eを実行 |
+| `pnpm storybook` | Storybookを起動 |
+| `pnpm storybook:build` | Storybookを静的ビルド |
+| `pnpm db:start` | ローカルPostgreSQLを起動 |
+| `pnpm db:stop` | ローカルPostgreSQLを停止 |
+| `pnpm db:migrate` | Prisma migrationを実行 |
+| `pnpm db:seed` | seedを投入 |
