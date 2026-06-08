@@ -45,16 +45,16 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
             <Field>
               <FieldLabel htmlFor="password">パスワード</FieldLabel>
               <Input id="password" type="password" required />
-              <FieldDescription>
-                8文字以上の長さが必要です。
-              </FieldDescription>
+              <FieldDescription>8文字以上の長さが必要です。</FieldDescription>
             </Field>
             <Field>
               <FieldLabel htmlFor="confirm-password">
                 パスワードの確認
               </FieldLabel>
               <Input id="confirm-password" type="password" required />
-              <FieldDescription>パスワードを確認してください。</FieldDescription>
+              <FieldDescription>
+                パスワードを確認してください。
+              </FieldDescription>
             </Field>
             <FieldGroup>
               <Field>
@@ -63,7 +63,8 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
                   Googleアカウントでサインアップ
                 </Button>
                 <FieldDescription className="px-6 text-center">
-                  既にアカウントをお持ちですか？<a href="#">ログインしてください</a>
+                  既にアカウントをお持ちですか？
+                  <a href="#">ログインしてください</a>
                 </FieldDescription>
               </Field>
             </FieldGroup>
