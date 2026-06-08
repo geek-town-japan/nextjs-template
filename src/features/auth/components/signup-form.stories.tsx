@@ -10,9 +10,11 @@ const meta = {
   tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <main className="flex min-h-screen items-center justify-center p-4">
+    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+      <div className="w-full max-w-sm">
         <Story />
-      </main>
+      </div>
+    </div>
     )
   ]
 } satisfies Meta<typeof SignupForm>
