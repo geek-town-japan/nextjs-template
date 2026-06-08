@@ -25,8 +25,6 @@
 │    ├── components
 │    ├── features
 │    └── lib
-├── stories
-│    └── ... # StorybookのサンプルStory
 ├── README.md
 ├── components.json
 ├── eslint.config.mjs
