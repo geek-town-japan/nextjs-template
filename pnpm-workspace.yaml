@@ -4,4 +4,6 @@ ignoredBuiltDependencies:
 minimumReleaseAge: 10080
 minimumReleaseAgeStrict: true
 onlyBuiltDependencies:
+  - "@prisma/engines"
   - msw
+  - prisma

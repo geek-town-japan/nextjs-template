@@ -16,7 +16,13 @@
         packages = with pkgs; [
           nodejs_25
           pnpm
+          openssl
+          prisma-engines_7
         ];
+
+        shellHook = ''
+          export PRISMA_SCHEMA_ENGINE_BINARY="${pkgs.prisma-engines_7}/bin/schema-engine"
+        '';
       };
     });
   };
