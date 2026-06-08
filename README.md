@@ -18,6 +18,11 @@
 │    └── extensions.json
 ├── docs
 │    └── ... # その他ドキュメント
+├── generated
+│    └── prisma # Prisma Client生成物
+├── prisma
+│    ├── migrations
+│    └── schema.prisma
 ├── public
 │    └── ... # 静的ファイル
 ├── src
@@ -30,6 +35,7 @@
 ├── eslint.config.mjs
 ├── next.config.ts
 ├── package.json
+├── prisma.config.ts
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
 ├── postcss.config.mjs
@@ -147,7 +153,8 @@
 | フォーム管理                        | Server Actions/HTML Form                           | Next.js/React標準              |
 | フォーム管理ライブラリ              | -                                                  | 未導入                         |
 | バリデーション                      | HTML標準バリデーションのみ                         | Zod等は未導入                  |
-| ORM/DBクライアント                  | -                                                  | 未導入                         |
+| ORM/DBクライアント                  | Prisma ORM/`@prisma/client`/`@prisma/adapter-pg`   | 7.8.0 / PostgreSQL             |
+| DBマイグレーション                  | Prisma Migrate                                     | `prisma/migrations`で管理      |
 | 認証                                | -                                                  | 未導入                         |
 | 状態管理                            | React標準                                          | 外部状態管理ライブラリは未導入 |
 | Storybook                           | Storybook                                          | 10.4.1                         |
@@ -199,31 +206,54 @@ ESLintは`eslint.config.mjs`で管理します。
 pnpm i
 ```
 
-3. 以下のコマンドを実行して、開発サーバーを起動します。
+3. `.env.example`をコピーして、`DATABASE_URL`を設定します。
+
+```bash
+cp .env.example .env
+```
+
+`.env`はプロジェクトルートに置きます。Next.js/Prisma CLI/Prisma Studioはプロジェクトルートから実行してください。
+
+4. Prisma Clientを生成し、開発DBへmigrationを適用します。
+
+```bash
+pnpm exec prisma generate
+pnpm exec prisma migrate dev
+```
+
+5. 以下のコマンドを実行して、開発サーバーを起動します。
 
 ```bash
 pnpm dev
 ```
 
-4. 起動が完了したら、ブラウザで[`http://localhost:3000`](http://localhost:3000)にアクセスして動作を確認できます。
+6. 起動が完了したら、ブラウザで[`http://localhost:3000`](http://localhost:3000)にアクセスして動作を確認できます。
 
 ## 主要コマンド
 
-| コマンド               | 内容                     |
-| ---------------------- | ------------------------ |
-| `pnpm dev`             | 開発サーバーを起動       |
-| `pnpm build`           | 本番ビルドを作成         |
-| `pnpm start`           | 本番サーバーを起動       |
-| `pnpm lint`            | ESLintを実行             |
-| `pnpm format`          | Prettierで整形           |
-| `pnpm format:check`    | Prettierの整形状態を確認 |
-| `pnpm storybook`       | Storybookを起動          |
-| `pnpm build-storybook` | Storybookをビルド        |
+| コマンド                  | 内容                          |
+| ------------------------- | ----------------------------- |
+| `pnpm dev`                | Next.js開発サーバーを起動     |
+| `pnpm build`              | 本番ビルドを作成              |
+| `pnpm start`              | 本番サーバーを起動            |
+| `pnpm lint`               | ESLintを実行                  |
+| `pnpm format`             | Prettierで整形                |
+| `pnpm format:check`       | Prettierの整形状態を確認      |
+| `pnpm storybook`          | Storybookを起動               |
+| `pnpm build-storybook`    | Storybookをビルド             |
+| `pnpm prisma-generate`    | Prisma Clientを生成           |
+| `pnpm prisma-migrate-dev` | 開発DBへmigrationを作成・適用 |
+| `pnpm prisma-studio`      | Prisma Studioを起動           |
+
+## Prisma / DB運用
+
+Prismaの詳細な構成、初期導入、migration、DB操作、seed、Studioの運用は[Prisma](docs/prisma.md)にまとめています。
 
 ## ドキュメント
 
 - [初期セットアップ](docs/setup.md) - 初期セットアップ
 - [Nix](docs/nix.md) - Nixの概要とコマンド
 - [Next.js](docs/next-js.md) - Next.jsの概要とコマンド
+- [Prisma](docs/prisma.md) - Prismaの概要とDB運用
 - [pnpm](docs/pnpm.md) - pnpmの概要とコマンド
 - [shadcn/ui](docs/shadcn-ui.md) - shadcn/uiの概要とコマンド
